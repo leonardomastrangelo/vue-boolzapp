@@ -102,7 +102,7 @@
                 <!-- right col -->
                 <div class="col-12 col-md-7">
                     <div class="row flex-column h-100 flex-nowrap">
-                           <!-- main header -->
+                        <!-- main header -->
                         <div class="col-12 bg-header d-flex justify-content-between py-2">
                             <!-- image & name -->
                             <div class="d-flex align-items-center">
@@ -126,11 +126,11 @@
                             <!-- icons -->
                             <div class="header-icons ">
                                 <!-- search -->
-                                <i class="fa-solid fa-magnifying-glass px-1"></i>
+                                <i class="fa-solid fa-magnifying-glass px-3"></i>
                                 <!-- clip -->
                                 <i class="fa-solid fa-paperclip px-3"></i>
                                 <!-- options -->
-                                <i class="fa-solid fa-ellipsis-vertical px-1"></i>
+                                <i class="fa-solid fa-ellipsis-vertical px-3"></i>
                             </div>
                         </div>
     
@@ -148,8 +148,16 @@
                             </div>
                         </div>
 
-                        <div class="col-12 bg-header">
-                            bottom-bar
+                        <!-- bottom-bar -->
+                        <div class="col-12 bg-header d-flex justify-content-around py-3">
+                            <!-- emojis -->
+                            <i class="fa-regular fa-face-smile header-icons"></i>
+
+                            <!-- input send message -->
+                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg">
+
+                            <!-- send button -->
+                            <i class="fa-regular fa-paper-plane header-icons"></i>
                         </div>
                     </div>
                 </div>

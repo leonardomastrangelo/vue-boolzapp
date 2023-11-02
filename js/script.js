@@ -8,7 +8,8 @@ const { createApp } = Vue
         
         contacts: contactsList,
         activeChat : 0,
-        contactFiltered : ""
+        contactFiltered : "",
+        myMsg : ""
       }
     },
     methods : {
