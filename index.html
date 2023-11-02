@@ -80,7 +80,7 @@
                         <!-- contacts -->
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                             <div 
-                            class="d-flex position-relative p-2"
+                            class="d-flex position-relative p-2 pointer"
                             v-for="(contact,index) in contacts" 
                             :class="(contact.id - 1 === activeChat) ? 'active' : ''"
                             :key="contact.id"
@@ -142,13 +142,17 @@
                         <!-- messages section -->
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 bg-main p-5">
                             <div class="row flex-column">
-                                <div class="col-5 position-relative" v-for="msg in contacts[activeChat].messages" :class="(msg.status === 'sent') ? 'sent' : 'received'">
+                                <div class="col-5 position-relative d-flex align-items-center
+                                justify-content-between" 
+                                id="message"
+                                v-for="msg in contacts[activeChat].messages" :class="(msg.status === 'sent') ? 'sent' : 'received'">
                                     <div class="pb-2">
                                         {{msg.message}}
                                     </div>
                                     <span class="ligh-grey msg-date">
                                         {{msg.date}}
                                     </span>
+                                    <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                             </div>
                         </div>
