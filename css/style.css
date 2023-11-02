@@ -32,6 +32,10 @@ body {
 	width: 100%;
 	display: block;
 }
+.dark-grey {
+	color: var(--color-dark-grey);
+	font-size: 0.8em;
+}
 
 /* left col */
 .h0 {
@@ -45,6 +49,10 @@ body {
 	color: var(--color-light-icons);
 	display: flex;
 	align-items: center;
+}
+.bg-notifications {
+	background-color: var(--color-notification);
+	color: var(--color-notification);
 }
 .bg-main {
 	background-image: url(../img/mine.jpg);
