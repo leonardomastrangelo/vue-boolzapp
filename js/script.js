@@ -22,8 +22,8 @@ const { createApp } = Vue
         return last[0].date;
       },
       showChat(contact){
-        const id = contact.id;
-        this.activeChat = id - 1
+        const id = contact.id - 1;
+        this.activeChat = id;
       }
     },
     computed : {
