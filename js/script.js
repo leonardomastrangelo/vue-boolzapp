@@ -14,13 +14,17 @@ const { createApp } = Vue
     },
     methods : {
       lastMsg(contact){
-        const last = contact.messages.slice(contact.messages.length - 1)
-        return last[0].message
+        const last = contact.messages.slice(contact.messages.length - 1);
+        return last[0].message;
       },
       lastHour(contact){
-        const last = contact.messages.slice(contact.messages.length - 1)
-        return last[0].date
+        const last = contact.messages.slice(contact.messages.length - 1);
+        return last[0].date;
       },
+      showChat(contact){
+        const id = contact.id;
+        this.activeChat = id - 1
+      }
     },
     computed : {
 

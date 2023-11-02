@@ -87,3 +87,6 @@ body {
 	right: 15px;
 	bottom: 0;
 }
+.active {
+	background-color: var(--color-contact-hover);
+}
