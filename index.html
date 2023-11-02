@@ -102,12 +102,50 @@
                 <!-- right col -->
                 <div class="col-12 col-md-7">
                     <div class="row flex-column h-100 flex-nowrap">
-                        <div class="col-12 bg-header">
-                            header
+                           <!-- main header -->
+                        <div class="col-12 bg-header d-flex justify-content-between py-2">
+                            <!-- image & name -->
+                            <div class="d-flex align-items-center">
+                                <!-- img -->
+                                <div class="profile-pic">
+                                    <img class="my-fluid" :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
+                                </div>
+                                <!-- info -->
+                                <div>
+                                    <!-- name -->
+                                    <h2 class="fs-5 ps-1 m-0">
+                                        {{contacts[activeChat].name}}
+                                    </h2>
+                                    <!-- last access -->
+                                    <div class="dark-grey px-1">
+                                        Ultimo accesso : {{lastHour(contacts[activeChat])}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- icons -->
+                            <div class="header-icons ">
+                                <!-- search -->
+                                <i class="fa-solid fa-magnifying-glass px-1"></i>
+                                <!-- clip -->
+                                <i class="fa-solid fa-paperclip px-3"></i>
+                                <!-- options -->
+                                <i class="fa-solid fa-ellipsis-vertical px-1"></i>
+                            </div>
                         </div>
     
-                        <div class="col-12 flex-grow-1 overflow-y-auto h0 bg-main">
-                            messages
+                        <!-- messages section -->
+                        <div class="col-12 flex-grow-1 overflow-y-auto h0 bg-main p-5">
+                            <div class="row flex-column">
+                                <div class="col-5 position-relative" v-for="msg in contacts[activeChat].messages" :class="(msg.status === 'sent') ? 'sent' : 'received'">
+                                    <div class="pb-2">
+                                        {{msg.message}}
+                                    </div>
+                                    <span class="ligh-grey msg-date">
+                                        {{msg.date}}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12 bg-header">

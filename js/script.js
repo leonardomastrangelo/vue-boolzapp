@@ -19,7 +19,7 @@ const { createApp } = Vue
       lastHour(contact){
         const last = contact.messages.slice(contact.messages.length - 1)
         return last[0].date
-      }
+      },
     },
     computed : {
 

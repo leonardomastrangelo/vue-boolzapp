@@ -63,6 +63,27 @@ body {
 	top: 8px;
 	right: 8px;
 }
+
+/* right col */
 .bg-main {
 	background-image: url(../img/mine.jpg);
+}
+.sent {
+	align-self: flex-end;
+	background-color: var(--color-sent-message);
+	margin: 10px 0;
+	padding: 15px;
+	border-radius: 20px;
+}
+.received {
+	align-self: flex-start;
+	background-color: var(--color-white);
+	margin: 10px 0;
+	padding: 15px;
+	border-radius: 20px;
+}
+.msg-date {
+	position: absolute;
+	right: 15px;
+	bottom: 0;
 }
