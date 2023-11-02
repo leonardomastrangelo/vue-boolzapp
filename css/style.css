@@ -1,0 +1,15 @@
+:root {
+	--color-white: #ffffff;
+	--color-dark-text: #161012;
+	--color-dark-grey: #6b7376;
+	--color-text-grey: #b6bbc1;
+	--color-headers: #eaeaea;
+	--color-contact-hover: #e9ebeb;
+	--color-light-icons: #b1b1b1;
+	--color-sent-message: #d5f9ba;
+	--color-notification: #8edafc;
+    --bg-app: linear-gradient(180deg, #009688 24.99%, #DCDBD3 25%);
+}
+body {
+    font-family: 'Lato', sans-serif;
+}
