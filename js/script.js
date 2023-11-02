@@ -1,4 +1,4 @@
-import { contacts } from "./data.js";
+import { contactsList } from "./data.js";
 
 const { createApp } = Vue
 
@@ -6,7 +6,7 @@ const { createApp } = Vue
     data() {
       return {
         
-        contacts: contacts,
+        contacts: contactsList,
         activeChat : 0,
         contactFiltered : ""
       }

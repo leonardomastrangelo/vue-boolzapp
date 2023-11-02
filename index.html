@@ -79,7 +79,7 @@
                         <!-- contacts -->
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                             <div class="d-flex position-relative p-2"
-                            v-for="(contact,index) in contacts">
+                            v-for="(contact,index) in contacts" :key="contact.id">
                                 <div class="profile-pic">
                                     <img class="my-fluid" :src="contact.avatar" :alt="contact.name">
                                 </div>
@@ -113,13 +113,14 @@
                         <div class="col-12 bg-header">
                             bottom-bar
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="js/script.js" type="modules"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.7/dist/vue.global.min.js"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>
