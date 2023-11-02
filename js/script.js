@@ -6,7 +6,8 @@ const { createApp } = Vue
     data() {
       return {
         contacts: contacts,
-        activeChat : 0
+        activeChat : 0,
+        contactFiltered : ""
       }
     },
     methods : {

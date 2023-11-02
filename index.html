@@ -66,7 +66,14 @@
 
                         <!-- search-bar -->
                         <div class="col-12">
-                            search
+                            <div class="input-group flex-nowrap py-2">
+                                <!-- lens-icons -->
+                                <span class="input-group-text border-0">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </span>
+                                <!-- input text -->
+                                <input type="text" class="form-control border-0 dark-grey" placeholder="Cerca o inizia una nuova chat" v-model="contactFiltered">
+                            </div>
                         </div>
 
                         <!-- contacts -->
