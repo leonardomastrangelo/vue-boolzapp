@@ -78,13 +78,14 @@
 
                         <!-- contacts -->
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
-                            <div class="d-flex position-relative p-2">
+                            <div class="d-flex position-relative p-2"
+                            v-for="(contact,index) in contacts">
                                 <div class="profile-pic">
-                                    <img class="my-fluid" src="img/avatar_1.jpg" alt="">
+                                    <img class="my-fluid" :src="contact.avatar" :alt="contact.name">
                                 </div>
                                 <div>
                                     <span class="name">
-                                        Michele
+                                        {{contact.name}}
                                     </span>
                                     <div class="ligh-grey">
                                         Last message

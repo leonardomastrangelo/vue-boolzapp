@@ -5,6 +5,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        
         contacts: contacts,
         activeChat : 0,
         contactFiltered : ""
@@ -15,5 +16,8 @@ const { createApp } = Vue
     },
     computed : {
         
+    },
+    mounted() {
+      console.log(contacts)
     }
   }).mount('#app')
