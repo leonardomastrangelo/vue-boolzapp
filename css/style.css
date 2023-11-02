@@ -36,6 +36,10 @@ body {
 	color: var(--color-dark-grey);
 	font-size: 0.8em;
 }
+.ligh-grey {
+	color: var(--color-text-grey);
+	font-size: 0.78em;
+}
 
 /* left col */
 .h0 {
@@ -53,6 +57,11 @@ body {
 .bg-notifications {
 	background-color: var(--color-notification);
 	color: var(--color-notification);
+}
+.hour {
+	position: absolute;
+	top: 8px;
+	right: 8px;
 }
 .bg-main {
 	background-image: url(../img/mine.jpg);
