@@ -43,6 +43,9 @@ body {
 .active {
 	background-color: var(--color-contact-hover);
 }
+.pointer {
+	cursor: pointer;
+}
 
 /* left col */
 .h0 {
@@ -90,9 +93,6 @@ body {
 	right: 15px;
 	bottom: 5px;
 }
-.pointer {
-	cursor: pointer;
-}
 .fa-solid.fa-chevron-down {
 	opacity: 0;
 	transition: all 0.3s ease-in-out;
@@ -100,4 +100,7 @@ body {
 }
 #message:hover .fa-solid.fa-chevron-down{
 	opacity: 1;
+}
+#msg-section {
+	font-size: 0.86em;
 }
