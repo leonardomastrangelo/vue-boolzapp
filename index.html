@@ -81,7 +81,7 @@
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                             <div 
                             class="d-flex position-relative p-2 pointer"
-                            v-for="(contact,index) in filteringContact()" 
+                            v-for="(contact,index) in filteringContact" 
                             :class="(contact.id - 1 === activeChat) ? 'active' : ''"
                             :key="contact.id"
                             @click="showChat(contact)">
@@ -163,10 +163,10 @@
                             <i class="fa-regular fa-face-smile header-icons"></i>
 
                             <!-- input send message -->
-                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg" @keyup.enter="pushMsg" id="msg" name="msg">
+                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg" @keyup.enter="pushMsg(); pushResponse()" id="msg" name="msg">
 
                             <!-- send button -->
-                            <i @click="pushMsg" class="fa-regular fa-paper-plane header-icons"></i>
+                            <i @click="pushMsg(); pushResponse()" class="fa-regular fa-paper-plane header-icons"></i>
                         </div>
                     </div>
                 </div>

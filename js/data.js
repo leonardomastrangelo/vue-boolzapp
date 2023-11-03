@@ -169,3 +169,22 @@ export const contactsList = [
         ],
     }
 ]
+
+export const msgRnd = [
+    "Come fai a sopportare il peso di essere così divino?",
+    "Senti non ho nulla da fare, potremmo iscriverci ad equitazione",
+    "Il Mario ha la mucca pazza multipla, meglio lasciarlo stare...",
+    "Mi ameresti lo stesso se fossi una lampada led LGBTQ+XL?",
+    "Cosa mangiamo stasera fratello of my heart<333",
+    "Dovresti smetterla di scrivermi, sono allergico alle persone",
+    "Maracaiboo, ANNAMO A BALLARE BEEESSSHHHTIA!!!",
+    "Aurelio è scomparso dalla circolazione, chiamo gli alpinisti svizzeri, non vorrei fosse rimasto intrappolato nelle caverne gelide nordiche",
+    "Le stelle sono tante milioni di milioni la stella di negroni vuol dire qualitaaaaaà!!",
+    "6X6 = 36 ma se non ci sei, 6 lei...</3",
+    "Sincermente non so più cosa scrivere in questo array, quindi beccatevi una formula matematica z-w=(a+ib)-(c+id)=(a-c)+i(b-d).",
+    "Cicciogamer capo dei paguri nazionale my man pazzo assurso sgravo ineguagliabile",
+    "Se puoi vincere, devi farlo!",
+    "Fissare degli obiettivi è il primo passo per trasformare l’invisibile nel visibile.",
+    "Innamorati prima di te, poi della vita",
+    "ehy ehy ehy maaaaaan"
+]
