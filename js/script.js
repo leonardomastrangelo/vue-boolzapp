@@ -9,7 +9,8 @@ const { createApp } = Vue
         contacts: contactsList,
         activeChat : 0,
         contactFiltered : "",
-        myMsg : ""
+        myMsg : "",
+        
       }
     },
     methods : {
@@ -28,7 +29,7 @@ const { createApp } = Vue
       pushMsg(){
         const newMsg = 
         {
-          date : this.time(),
+          date : this.time,
           message : this.myMsg,
           status : "sent"
         }
@@ -37,6 +38,18 @@ const { createApp } = Vue
           this.myMsg = ""
         }
       },
+      filteringContact(){
+        if (this.contactFiltered === "") {
+          return this.contacts
+        }
+        else {
+          return this.contacts.filter((contact)=> contact.name.includes(this.contactFiltered))
+        }
+      }
+    },
+    mounted() {
+    },
+    computed : {
       time(){
         const now = new Date()
         const year = now.getFullYear();
@@ -47,7 +60,5 @@ const { createApp } = Vue
         const h_m = `${day}/${month}/${year} ${hours}:${minutes}`
         return h_m
       }
-    },
-    mounted() {
     }
   }).mount('#app')

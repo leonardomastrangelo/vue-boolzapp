@@ -81,14 +81,14 @@
                         <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                             <div 
                             class="d-flex position-relative p-2 pointer"
-                            v-for="(contact,index) in contacts" 
+                            v-for="(contact,index) in filteringContact()" 
                             :class="(contact.id - 1 === activeChat) ? 'active' : ''"
                             :key="contact.id"
                             @click="showChat(contact)">
                                 <div class="profile-pic">
                                     <img class="my-fluid" :src="contact.avatar" :alt="contact.name">
                                 </div>
-                                <div>
+                                <div class="ps-2">
                                     <span class="name">
                                         {{contact.name}}
                                     </span>
