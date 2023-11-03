@@ -43,7 +43,7 @@ const { createApp } = Vue
           return this.contacts
         }
         else {
-          return this.contacts.filter((contact)=> contact.name.includes(this.contactFiltered))
+          return this.contacts.filter((contact)=> contact.name.toLowerCase().includes(this.contactFiltered))
         }
       }
     },

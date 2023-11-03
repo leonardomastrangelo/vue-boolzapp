@@ -73,7 +73,7 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
                                 <!-- input text -->
-                                <input type="text" class="form-control border-0 dark-grey" placeholder="Cerca o inizia una nuova chat" v-model="contactFiltered">
+                                <input type="text" class="form-control border-0 dark-grey" placeholder="Cerca o inizia una nuova chat" v-model="contactFiltered" id="filtered-name" name="filtered-name">
                             </div>
                         </div>
 
@@ -163,7 +163,7 @@
                             <i class="fa-regular fa-face-smile header-icons"></i>
 
                             <!-- input send message -->
-                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg" @keyup.enter="pushMsg">
+                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg" @keyup.enter="pushMsg" id="msg" name="msg">
 
                             <!-- send button -->
                             <i @click="pushMsg" class="fa-regular fa-paper-plane header-icons"></i>
