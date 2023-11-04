@@ -14,12 +14,20 @@ createApp({
   },
   methods: {
     lastMsg(contact) {
-      const last = contact.messages.slice(contact.messages.length - 1);
-      return last[0].message;
+      let last = contact.messages.slice(contact.messages.length - 1,);
+      if (last.length !== 0) {
+        return last[0].message;
+      } else {
+        return last = ""
+      }
     },
     lastHour(contact) {
-      const last = contact.messages.slice(contact.messages.length - 1);
-      return last[0].date;
+      let last = contact.messages.slice(contact.messages.length - 1);
+      if (last.length !== 0) {
+        return last[0].date;
+      } else {
+        return last = ` c'era una volta...`
+      }
     },
     showChat(contact) {
       const id = contact.id - 1;
@@ -49,14 +57,21 @@ createApp({
           };
           // push response
           this.contacts[this.activeChat].messages.push(newResponse);
+          // rnd integer
           function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
           }
         }, 1500);
       }
     },
+    deleteMsg(msg,index){
+      return this.contacts[this.activeChat].messages.splice(index, 1)
+      
+    }
+    
   },
-  mounted() {},
+  mounted() {
+  },
   computed: {
     time() {
       const now = new Date();
@@ -77,5 +92,6 @@ createApp({
         );
       }
     },
+    
   },
 }).mount("#app");

@@ -4,178 +4,242 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <!-- title -->
     <title>Vue Boolzapp</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="img/my-favicon_io/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="img/my-favicon_io/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="img/my-favicon_io/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/my-favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/my-favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/my-favicon_io/favicon-16x16.png"
+    />
     <link rel="manifest" href="img/my-favicon_io/site.webmanifest" />
   </head>
   <body>
-
     <div id="app">
-        <div class="container h-100">
-            <div class="row h-100 flex-nowrap">
-
-                <!-- left col -->
-                <div class="col-12 col-md-5 bg-light">
-                    <div class="row flex-column h-100 flex-nowrap">
-                        <!-- personal profile -->
-                        <div class="col-12 bg-header d-flex justify-content-between py-2">
-                            <!-- image & name -->
-                            <div class="d-flex align-items-center">
-                                <!-- img -->
-                                <div class="profile-pic">
-                                    <img class="my-fluid" src="img/avatar_io.jpg" alt="sofia">
-                                </div>
-                                <!-- name -->
-                                <h2 class="fs-5 ps-1 m-0">Sofia</h2>
-                            </div>
-
-                            <!-- icons -->
-                            <div class="header-icons ">
-                                <!-- reload -->
-                                <i class="fa-solid fa-circle-notch px-1"></i>
-                                <!-- message -->
-                                <i class="fa-solid fa-message px-3"></i>
-                                <!-- options -->
-                                <i class="fa-solid fa-ellipsis-vertical px-1"></i>
-                            </div>
-                        </div>
-
-                        <!-- notifications -->
-                        <div class="col-12 bg-notifications p-3 d-flex ">
-                            <!-- bell-icon -->
-                            <div class="profile-pic bg-light d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-bell-slash fs-5"></i>
-                            </div>
-                            <!-- call to action -->
-                            <div class="px-3">
-                                <div class="text-dark">Ricevi notifiche di nuovi messaggi</div>
-                                <a class="dark-grey" href="#">Attiva notifiche desktop</a>
-                            </div>
-                        </div>
-
-                        <!-- search-bar -->
-                        <div class="col-12">
-                            <div class="input-group flex-nowrap py-2">
-                                <!-- lens-icons -->
-                                <span class="input-group-text border-0">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </span>
-                                <!-- input text -->
-                                <input type="text" class="form-control border-0 dark-grey" placeholder="Cerca o inizia una nuova chat" v-model="contactFiltered" id="filtered-name" name="filtered-name">
-                            </div>
-                        </div>
-
-                        <!-- contacts -->
-                        <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
-                            <div 
-                            class="d-flex position-relative p-2 pointer"
-                            v-for="(contact,index) in filteringContact" 
-                            :class="(contact.id - 1 === activeChat) ? 'active' : ''"
-                            :key="contact.id"
-                            @click="showChat(contact)">
-                                <div class="profile-pic">
-                                    <img class="my-fluid" :src="contact.avatar" :alt="contact.name">
-                                </div>
-                                <div class="ps-2">
-                                    <span class="name">
-                                        {{contact.name}}
-                                    </span>
-                                    <div class="ligh-grey">
-                                        {{lastMsg(contact)}}
-                                    </div>
-                                    <div class="hour ligh-grey">
-                                        {{lastHour(contact)}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container h-100">
+        <div class="row h-100 flex-nowrap">
+          <!-- left col -->
+          <div class="col-12 col-md-5 bg-light">
+            <div class="row flex-column h-100 flex-nowrap">
+              <!-- personal profile -->
+              <div class="col-12 bg-header d-flex justify-content-between py-2">
+                <!-- image & name -->
+                <div class="d-flex align-items-center">
+                  <!-- img -->
+                  <div class="profile-pic">
+                    <img class="my-fluid" src="img/avatar_io.jpg" alt="sofia" />
+                  </div>
+                  <!-- name -->
+                  <h2 class="fs-5 ps-1 m-0">Sofia</h2>
                 </div>
 
-                <!-- right col -->
-                <div class="col-12 col-md-7">
-                    <div class="row flex-column h-100 flex-nowrap">
-                        <!-- main header -->
-                        <div class="col-12 bg-header d-flex justify-content-between py-2">
-                            <!-- image & name -->
-                            <div class="d-flex align-items-center">
-                                <!-- img -->
-                                <div class="profile-pic">
-                                    <img class="my-fluid" :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
-                                </div>
-                                <!-- info -->
-                                <div>
-                                    <!-- name -->
-                                    <h2 class="fs-5 ps-1 m-0">
-                                        {{contacts[activeChat].name}}
-                                    </h2>
-                                    <!-- last access -->
-                                    <div class="dark-grey px-1">
-                                        Ultimo accesso : {{lastHour(contacts[activeChat])}}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- icons -->
-                            <div class="header-icons ">
-                                <!-- search -->
-                                <i class="fa-solid fa-magnifying-glass px-3"></i>
-                                <!-- clip -->
-                                <i class="fa-solid fa-paperclip px-3"></i>
-                                <!-- options -->
-                                <i class="fa-solid fa-ellipsis-vertical px-3"></i>
-                            </div>
-                        </div>
-    
-                        <!-- messages section -->
-                        <div id="msg-section" class="col-12 flex-grow-1 overflow-y-auto h0 bg-main p-5">
-                            <div class="row flex-column">
-                                <div class="col-5 position-relative d-flex align-items-center
-                                justify-content-between" 
-                                id="message"
-                                v-for="msg in contacts[activeChat].messages" :class="(msg.status === 'sent') ? 'sent' : 'received'">
-                                    <div class="pb-2">
-                                        {{msg.message}}
-                                    </div>
-                                    <span class="ligh-grey msg-date">
-                                        {{msg.date.slice(10,16)}}
-                                    </span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- bottom-bar -->
-                        <div class="col-12 bg-header d-flex justify-content-around py-3">
-                            <!-- emojis -->
-                            <i class="fa-regular fa-face-smile header-icons"></i>
-
-                            <!-- input send message -->
-                            <input type="text" class="w-75 form-control ligh-grey py-2" placeholder="Scrivi un messaggio" v-model="myMsg" @keyup.enter="pushMsg(); pushResponse()" id="msg" name="msg">
-
-                            <!-- send button -->
-                            <i @click="pushMsg(); pushResponse()" class="fa-regular fa-paper-plane header-icons"></i>
-                        </div>
-                    </div>
+                <!-- icons -->
+                <div class="header-icons">
+                  <!-- reload -->
+                  <i class="fa-solid fa-circle-notch px-1"></i>
+                  <!-- message -->
+                  <i class="fa-solid fa-message px-3"></i>
+                  <!-- options -->
+                  <i class="fa-solid fa-ellipsis-vertical px-1"></i>
                 </div>
+              </div>
+
+              <!-- notifications -->
+              <div class="col-12 bg-notifications p-3 d-flex">
+                <!-- bell-icon -->
+                <div
+                  class="profile-pic bg-light d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-bell-slash fs-5"></i>
+                </div>
+                <!-- call to action -->
+                <div class="px-3">
+                  <div class="text-dark">
+                    Ricevi notifiche di nuovi messaggi
+                  </div>
+                  <a class="dark-grey" href="#">Attiva notifiche desktop</a>
+                </div>
+              </div>
+
+              <!-- search-bar -->
+              <div class="col-12">
+                <div class="input-group flex-nowrap py-2">
+                  <!-- lens-icons -->
+                  <span class="input-group-text border-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </span>
+                  <!-- input text -->
+                  <input
+                    type="text"
+                    class="form-control border-0 dark-grey"
+                    placeholder="Cerca o inizia una nuova chat"
+                    v-model="contactFiltered"
+                    id="filtered-name"
+                    name="filtered-name"
+                  />
+                </div>
+              </div>
+
+              <!-- contacts -->
+              <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
+                <div
+                  class="d-flex position-relative p-2 pointer"
+                  v-for="(contact,index) in filteringContact"
+                  :class="(contact.id - 1 === activeChat) ? 'active' : ''"
+                  :key="contact.id"
+                  @click="showChat(contact)"
+                >
+                  <div class="profile-pic">
+                    <img
+                      class="my-fluid"
+                      :src="contact.avatar"
+                      :alt="contact.name"
+                    />
+                  </div>
+                  <div class="ps-2">
+                    <span class="name"> {{contact.name}} </span>
+                    <div class="ligh-grey">
+                      {{lastMsg(contact).slice(0,17) + `...`}}
+                    </div>
+                    <div class="hour ligh-grey">{{lastHour(contact)}}</div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- right col -->
+          <div class="col-12 col-md-7">
+            <div class="row flex-column h-100 flex-nowrap">
+              <!-- main header -->
+              <div class="col-12 bg-header d-flex justify-content-between py-2">
+                <!-- image & name -->
+                <div class="d-flex align-items-center">
+                  <!-- img -->
+                  <div class="profile-pic">
+                    <img
+                      class="my-fluid"
+                      :src="contacts[activeChat].avatar"
+                      :alt="contacts[activeChat].name"
+                    />
+                  </div>
+                  <!-- info -->
+                  <div>
+                    <!-- name -->
+                    <h2 class="fs-5 ps-1 m-0">{{contacts[activeChat].name}}</h2>
+                    <!-- last access -->
+                    <div class="dark-grey px-1">
+                      Ultimo accesso : {{lastHour(contacts[activeChat])}}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- icons -->
+                <div class="header-icons">
+                  <!-- search -->
+                  <i class="fa-solid fa-magnifying-glass px-3"></i>
+                  <!-- clip -->
+                  <i class="fa-solid fa-paperclip px-3"></i>
+                  <!-- options -->
+                  <i class="fa-solid fa-ellipsis-vertical px-3"></i>
+                </div>
+              </div>
+
+              <!-- messages section -->
+              <div
+                id="msg-section"
+                class="col-12 flex-grow-1 overflow-y-auto h0 bg-main p-5">
+                <div class="row flex-column">
+                    <!-- message cycle -->
+                  <div
+                    class="col-5 position-relative d-flex align-items-center justify-content-between message"
+                    v-for="(msg,index) in contacts[activeChat].messages"
+                    :class="(msg.status === 'sent') ? 'sent' : 'received'">
+                    <!-- text -->
+                    <div class="pb-2">{{msg.message}}</div>
+                    <!-- time -->
+                    <span class="ligh-grey msg-date">
+                      {{msg.date.slice(10,16)}}
+                    </span>
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Message info</a></li>
+                          <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(msg,index)">Delete message</a></li>
+                        </ul>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- bottom-bar -->
+              <div class="col-12 bg-header d-flex justify-content-around py-3">
+                <!-- emojis -->
+                <i class="fa-regular fa-face-smile header-icons"></i>
+
+                <!-- input send message -->
+                <input
+                  type="text"
+                  class="w-75 form-control ligh-grey py-2"
+                  placeholder="Scrivi un messaggio"
+                  v-model="myMsg"
+                  @keyup.enter="pushMsg(); pushResponse()"
+                  id="msg"
+                  name="msg"
+                />
+
+                <!-- send button -->
+                <i
+                  @click="pushMsg(); pushResponse()"
+                  class="fa-regular fa-paper-plane header-icons"
+                ></i>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3.3.7/dist/vue.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="js/script.js" type="module"></script>
   </body>
 </html>
