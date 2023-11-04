@@ -39,12 +39,12 @@ createApp({
         message: this.myMsg,
         status: "sent",
       };
-      if (this.myMsg !== "") {
+      if (this.myMsg.trim() !== "") {
         this.contacts[this.activeChat].messages.push(newMsg);
       }
     },
     pushResponse() {
-      if (this.myMsg !== "") {
+      if (this.myMsg.trim() !== "") {
         // clear response
         this.myMsg = "";
         const timer = setTimeout(() => {
