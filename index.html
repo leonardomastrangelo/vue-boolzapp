@@ -229,7 +229,14 @@
                 <i
                   @click="pushMsg(); pushResponse()"
                   class="fa-regular fa-paper-plane header-icons"
-                ></i>
+                  v-if="myMsg !== ''">
+                </i>
+                <!-- mic -->
+                <i
+                  @click="pushMsg(); pushResponse()"
+                  class="fa-solid fa-microphone header-icons"
+                  v-else>
+                </i>
               </div>
             </div>
           </div>
