@@ -11,10 +11,14 @@ createApp({
       myMsg: "",
       responses: msgRnd,
       lastId: 8,
-      newName: ""
+      newName: "",
+      splash : true
     };
   },
   methods: {
+    splashInteraction(){
+      this.splash = false
+    },
     lastMsg(contact) {
       let lastMsg = contact.messages.slice(contact.messages.length - 1,);
       if (lastMsg.length !== 0) {
