@@ -175,7 +175,17 @@
                   <!-- clip -->
                   <i class="fa-solid fa-paperclip px-3"></i>
                   <!-- options -->
-                  <i class="fa-solid fa-ellipsis-vertical px-3"></i>
+                  <div class="dropdown">
+                    <!-- icon -->
+                    <i class="fa-solid fa-ellipsis-vertical dropdown-toggle px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <!-- menù -->
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a @click.prevent="deleteAllMsg" class="dropdown-item" href="#">Elimina messaggi</a>
+                      </li>
+                      <li><a @click.prevent="deleteChat" class="dropdown-item" href="#">Elimina chat</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -204,7 +214,7 @@
                           <li><a class="dropdown-item" href="#">Message info</a></li>
                           <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(msg,index)">Delete message</a></li>
                         </ul>
-                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

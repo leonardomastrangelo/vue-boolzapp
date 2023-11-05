@@ -98,8 +98,7 @@ i {
 	right: 15px;
 	bottom: 5px;
 }
-
-.dropdown-toggle {
+#msg-section .dropdown-toggle {
 	text-decoration: none;
 	font-size: 1.8em;
 	opacity: 0;
@@ -111,6 +110,19 @@ i {
 }
 #msg-section {
 	font-size: 0.86em;
+}
+.header-icons .dropdown-toggle:empty::after {
+    display: none !important;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 
 

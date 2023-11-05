@@ -1,7 +1,7 @@
 import { contactsList } from "./data.js";
 import { msgRnd } from "./data.js";
-const { createApp } = Vue;
 
+const { createApp } = Vue;
 createApp({
   data() {
     return {
@@ -58,7 +58,16 @@ createApp({
         const one = setTimeout(()=>{
           // push response
           this.contacts[this.activeChat].messages.push(newResponse)
+          // scroll
+          const height = document.getElementById("msg-section").clientHeight
+          document.getElementById("msg-section").scrollBy(
+            {
+              top: height,
+              behavior: "smooth"
+            }
+          )
         },2000)
+
         function getRndInteger(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -66,7 +75,12 @@ createApp({
     },
     deleteMsg(msg,index){
       return this.contacts[this.activeChat].messages.splice(index, 1)
-      
+    },
+    deleteAllMsg(){
+      this.contacts[this.activeChat].messages = []
+    },
+    deleteChat(){
+      this.contacts.splice(this.contacts[this.activeChat],1)
     }
     
   },
@@ -92,6 +106,7 @@ createApp({
         );
       }
     },
+    
     
   },
 }).mount("#app");
