@@ -50,13 +50,13 @@
   </head>
   <body>
     <div id="app">
-      <div id="splash" class="position-relative vh-100 pt-5" v-if="(splash === true)">
+      <div id="splash" class="container-lg position-relative h-100 pt-5" v-if="(splash === true)">
         <div id="overlay">
           <h1 class="display-1 fw-bold py-5">Benvenuto</h1>
           <p class="fs-4 w-50 py-3">Questa è un'app di messaggistica in fase di sperimentazione, unisciti anche tu in questa nuova avventura nel mondo delle comunicazioni e dacci un feedback!</p>
           <p class="pt-4">Cliccka qui sotto per entrare nell'app!!</p>
           <i class="fa-solid fa-down-long fa-bounce fs-2 py-4"></i>
-          <button @click="splashInteraction" class="btn btn-light">Enter</button>
+          <button @click="splashInteraction" class="btn btn-light mb-5">Enter</button>
         </div>
       </div>
       <div class="container-lg h-100" v-else>

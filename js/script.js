@@ -88,16 +88,18 @@ createApp({
       this.contacts.splice(this.contacts[this.activeChat],1)
     },
     newChat(){
+      this.lastId++
       const newConvo = {
-        id: this.lastId++,
+        id: this.lastId,
         name: this.newName,
-        avatar: './img/avatar_8.jpg',
+        avatar: '../img/avatar_5.jpg',
         visible: true,
         messages: [
         ],
       }
       if (this.newName.trim() !== "") {
-        this.contacts.unshift(newConvo)
+        this.contacts.push(newConvo)
+        this.activeChat = newConvo.id - 1
       }
       this.newName = ""
     }
