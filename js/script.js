@@ -10,7 +10,8 @@ createApp({
       contactFiltered: "",
       myMsg: "",
       responses: msgRnd,
-      
+      lastId: 8,
+      newName: ""
     };
   },
   methods: {
@@ -81,8 +82,21 @@ createApp({
     },
     deleteChat(){
       this.contacts.splice(this.contacts[this.activeChat],1)
+    },
+    newChat(){
+      const newConvo = {
+        id: this.lastId++,
+        name: this.newName,
+        avatar: './img/avatar_8.jpg',
+        visible: true,
+        messages: [
+        ],
+      }
+      if (this.newName.trim() !== "") {
+        this.contacts.unshift(newConvo)
+      }
+      this.newName = ""
     }
-    
   },
   mounted() {
   },
