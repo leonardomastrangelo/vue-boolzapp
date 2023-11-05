@@ -51,6 +51,9 @@ i {
 .pointer {
 	cursor: pointer;
 }
+.usable {
+	color: rgba(40, 136, 40, 0.742);
+}
 
 /* left col */
 .h0 {
@@ -118,15 +121,5 @@ i {
     display: none !important;
 }
 
-
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-}
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
 
 
