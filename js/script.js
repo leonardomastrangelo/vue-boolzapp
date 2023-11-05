@@ -10,23 +10,24 @@ createApp({
       contactFiltered: "",
       myMsg: "",
       responses: msgRnd,
+      
     };
   },
   methods: {
     lastMsg(contact) {
-      let last = contact.messages.slice(contact.messages.length - 1,);
-      if (last.length !== 0) {
-        return last[0].message;
+      let lastMsg = contact.messages.slice(contact.messages.length - 1,);
+      if (lastMsg.length !== 0) {
+        return lastMsg[0].message;
       } else {
-        return last = ""
+        return lastMsg = ""
       }
     },
     lastHour(contact) {
-      let last = contact.messages.slice(contact.messages.length - 1);
-      if (last.length !== 0) {
-        return last[0].date;
+      let lastH = contact.messages.slice(contact.messages.length - 1);
+      if (lastH.length !== 0) {
+        return lastH[0].date;
       } else {
-        return last = ` c'era una volta...`
+        return lastH = "c'era una volta"
       }
     },
     showChat(contact) {
@@ -47,22 +48,21 @@ createApp({
       if (this.myMsg.trim() !== "") {
         // clear response
         this.myMsg = "";
-        const timer = setTimeout(() => {
-          // response object
-          const newResponse = {
-            date: this.time,
-            message:
-              this.responses[getRndInteger(0, this.responses.length - 1)],
-            status: "received",
-          };
+        // response object
+        const newResponse = {
+          date: this.time,
+          message:
+            this.responses[getRndInteger(0, this.responses.length - 1)],
+          status: "received",
+        };
+        const one = setTimeout(()=>{
           // push response
-          this.contacts[this.activeChat].messages.push(newResponse);
-          // rnd integer
-          function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-          }
-        }, 1500);
-      }
+          this.contacts[this.activeChat].messages.push(newResponse)
+        },2000)
+        function getRndInteger(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        }
     },
     deleteMsg(msg,index){
       return this.contacts[this.activeChat].messages.splice(index, 1)
