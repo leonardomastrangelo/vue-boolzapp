@@ -105,7 +105,7 @@ i {
 	color: var(--color-dark-grey);
 	transition: all 0.3s ease;
 }
-.message:hover .dropdown-toggle{
+#msg-section .message:hover .dropdown-toggle{
 	opacity: 1;
 }
 #msg-section {
@@ -114,6 +114,7 @@ i {
 .header-icons .dropdown-toggle:empty::after {
     display: none !important;
 }
+
 
 .list-enter-active,
 .list-leave-active {
