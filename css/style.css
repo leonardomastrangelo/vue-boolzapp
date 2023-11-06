@@ -45,7 +45,7 @@ i {
 	color: var(--color-text-grey);
 	font-size: 0.78em;
 }
-.active {
+.user:hover {
 	background-color: var(--color-contact-hover);
 }
 .pointer {

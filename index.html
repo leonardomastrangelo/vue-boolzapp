@@ -145,12 +145,10 @@
               <!-- contacts -->
               <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                 <div
-                  class="d-flex justify-content-center justify-content-md-start position-relative p-2 pointer"
+                  class="d-flex justify-content-center justify-content-md-start position-relative p-2 pointer user"
                   v-for="(contact,index) in filteringContact"
-                  :class="(contact.id - 1 === activeChat) ? 'active' : ''"
                   :key="contact.id"
-                  @click="showChat(contact)"
-                >
+                  @click="showChat(contact)">
                   <div class="profile-pic">
                     <img
                       class="my-fluid"
@@ -223,7 +221,7 @@
               <div
                 id="msg-section"
                 class="col-12 flex-grow-1 overflow-y-auto h0 bg-main p-5">
-                <div class="row flex-column overflow-y-auto">
+                <div class="row flex-column">
                     <!-- message cycle -->
                   <div
                     class="col-7 col-lg-5 position-relative d-flex align-items-center justify-content-between message"

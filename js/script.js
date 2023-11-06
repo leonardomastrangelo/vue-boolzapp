@@ -44,6 +44,7 @@ createApp({
       this.activeChat = contact.id - 1;
       this.showing = false
     },
+    //! problem scroll 
     pushMsg() {
       const newMsg = {
         date: this.time,
@@ -57,6 +58,7 @@ createApp({
         lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
       }
     },
+    //! problem scroll 
     pushResponse() {
       if (this.myMsg.trim() !== "") {
         // clear response
@@ -87,8 +89,10 @@ createApp({
     deleteAllMsg(){
       this.contacts[this.activeChat].messages = []
     },
+    //! problem list
     deleteChat(){
       this.contacts.splice(this.activeChat,1);
+      this.showing = true
     },
     newChat(){
       this.lastId = this.lastIdCalculator + 1
