@@ -10,9 +10,10 @@ createApp({
       contactFiltered: "",
       myMsg: "",
       responses: msgRnd,
-      lastId: 8,
       newName: "",
-      splash : true
+      splash : true,
+      seconds : 5,
+      lastId: ""
     };
   },
   methods: {
@@ -36,8 +37,7 @@ createApp({
       }
     },
     showChat(contact) {
-      const id = contact.id - 1;
-      this.activeChat = id;
+      this.activeChat = contact.id - 1;
     },
     pushMsg() {
       const newMsg = {
@@ -47,6 +47,9 @@ createApp({
       };
       if (this.myMsg.trim() !== "") {
         this.contacts[this.activeChat].messages.push(newMsg);
+        //? va sul penultimo
+        let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
+        lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
       }
     },
     pushResponse() {
@@ -63,16 +66,11 @@ createApp({
         const one = setTimeout(()=>{
           // push response
           this.contacts[this.activeChat].messages.push(newResponse)
-          // scroll
-          const height = document.getElementById("msg-section").clientHeight
-          document.getElementById("msg-section").scrollBy(
-            {
-              top: height,
-              behavior: "smooth"
-            }
-          )
+          //? va sul penultimo
+          let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
+          lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
         },2000)
-
+        // rnd integer
         function getRndInteger(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -85,14 +83,14 @@ createApp({
       this.contacts[this.activeChat].messages = []
     },
     deleteChat(){
-      this.contacts.splice(this.contacts[this.activeChat],1)
+      this.contacts.splice(this.activeChat,1);
     },
     newChat(){
-      this.lastId++
+      this.lastId = this.lastIdCalculator + 1
       const newConvo = {
         id: this.lastId,
         name: this.newName,
-        avatar: '../img/avatar_5.jpg',
+        avatar: './img/avatar_8.jpg',
         visible: true,
         messages: [
         ],
@@ -102,9 +100,23 @@ createApp({
         this.activeChat = newConvo.id - 1
       }
       this.newName = ""
-    }
+    },
+    
+    // autoScroll(){
+    //   let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
+    //   lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
+    //   console.log(this.$refs.prova[this.$refs.prova.length - 1]);
+    // }
   },
   mounted() {
+    setInterval(()=> {
+      if (this.seconds !== 0) {
+        return this.seconds--
+      } else {
+        this.splash = false
+        clearInterval()
+      }
+    },1000)
   },
   computed: {
     time() {
@@ -126,7 +138,9 @@ createApp({
         );
       }
     },
-    
+    lastIdCalculator(){
+      return this.lastId = this.contacts[this.contacts.length - 1].id
+    },
     
   },
 }).mount("#app");

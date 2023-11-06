@@ -121,12 +121,15 @@ i {
     display: none !important;
 }
 
+/* splash section */
 #splash {
 	background-image: url(../img/splash2.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top;
 	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
 }
 #splash::after {
 	content: "";
