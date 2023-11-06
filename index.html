@@ -68,8 +68,9 @@
       <!-- app -->
       <div class="container-lg h-100" v-show="(!splash)">
         <div class="row h-100 flex-nowrap">
+
           <!-- left col -->
-          <div class="col-2 col-md-5 bg-light">
+          <div :class="(!showing) ? 'showing' : ''" class="col-12 bg-light">
             <div class="row flex-column h-100 flex-nowrap">
               <!-- personal profile -->
               <div class="col-12 bg-header d-flex justify-content-center justify-content-md-between py-2 ">
@@ -170,12 +171,14 @@
           </div>
 
           <!-- right col -->
-          <div class="col-10 col-md-7">
+          <div :class="(showing) ? 'showing' : ''" class="col-12">
             <div class="row flex-column h-100 flex-nowrap">
               <!-- main header -->
               <div class="col-12 bg-header d-flex justify-content-between py-2">
                 <!-- image & name -->
                 <div class="d-flex align-items-center">
+                  <!-- back to contacts -->
+                  <i @click="goToChat()" class="fa-regular fa-circle-left px-3"></i>
                   <!-- img -->
                   <div class="profile-pic">
                     <img

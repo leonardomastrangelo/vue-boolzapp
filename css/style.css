@@ -54,6 +54,9 @@ i {
 .usable {
 	color: rgba(40, 136, 40, 0.742);
 }
+.showing {
+	display: none;
+}
 
 /* left col */
 .h0 {

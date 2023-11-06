@@ -13,12 +13,16 @@ createApp({
       newName: "",
       splash : true,
       seconds : 5,
-      lastId: ""
+      lastId: "",
+      showing: true
     };
   },
   methods: {
     splashInteraction(){
       this.splash = false
+    },
+    goToChat(){
+      this.showing = true
     },
     lastMsg(contact) {
       let lastMsg = contact.messages.slice(contact.messages.length - 1,);
@@ -38,6 +42,7 @@ createApp({
     },
     showChat(contact) {
       this.activeChat = contact.id - 1;
+      this.showing = false
     },
     pushMsg() {
       const newMsg = {
@@ -66,7 +71,7 @@ createApp({
         const one = setTimeout(()=>{
           // push response
           this.contacts[this.activeChat].messages.push(newResponse)
-          //? va sul penultimo
+          //! va sul penultimo
           let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
           lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
         },2000)
@@ -101,7 +106,6 @@ createApp({
       }
       this.newName = ""
     },
-    
     // autoScroll(){
     //   let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
     //   lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
