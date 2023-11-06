@@ -44,7 +44,6 @@ createApp({
       this.activeChat = contact.id - 1;
       this.showing = false
     },
-    //! problem scroll 
     pushMsg() {
       const newMsg = {
         date: this.time,
@@ -52,13 +51,16 @@ createApp({
         status: "sent",
       };
       if (this.myMsg.trim() !== "") {
+        // push msg
         this.contacts[this.activeChat].messages.push(newMsg);
-        //? va sul penultimo
-        let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
-        lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
+        // autoscroll to sent
+        this.$nextTick (()=> {
+          let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
+          lastMsg.scrollIntoView({ behavior: "smooth"})
+          
+        })       
       }
     },
-    //! problem scroll 
     pushResponse() {
       if (this.myMsg.trim() !== "") {
         // clear response
@@ -70,12 +72,16 @@ createApp({
             this.responses[getRndInteger(0, this.responses.length - 1)],
           status: "received",
         };
-        const one = setTimeout(()=>{
+        // timer to push response
+        const timeToPush = setTimeout(()=>{
           // push response
           this.contacts[this.activeChat].messages.push(newResponse)
-          //! va sul penultimo
-          let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
-          lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
+          // autoscroll to received
+          this.$nextTick (()=> {
+            let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
+          lastMsg.scrollIntoView({ behavior: "smooth"})
+          
+          })
         },2000)
         // rnd integer
         function getRndInteger(min, max) {
@@ -89,7 +95,6 @@ createApp({
     deleteAllMsg(){
       this.contacts[this.activeChat].messages = []
     },
-    //! problem list
     deleteChat(){
       this.contacts.splice(this.activeChat,1);
       this.showing = true
@@ -109,14 +114,10 @@ createApp({
         this.activeChat = newConvo.id - 1
       }
       this.newName = ""
-    },
-    // autoScroll(){
-    //   let lastMsg = this.$refs.prova[this.$refs.prova.length - 1]
-    //   lastMsg.scrollIntoView({ behavior: "smooth", block: "end"})
-    //   console.log(this.$refs.prova[this.$refs.prova.length - 1]);
-    // }
+    }
   },
   mounted() {
+    // timer to enter to app
     setInterval(()=> {
       if (this.seconds !== 0) {
         return this.seconds--
@@ -149,6 +150,5 @@ createApp({
     lastIdCalculator(){
       return this.lastId = this.contacts[this.contacts.length - 1].id
     },
-    
   },
 }).mount("#app");

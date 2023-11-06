@@ -57,7 +57,9 @@ i {
 .showing {
 	display: none;
 }
-
+.message {
+	scroll-margin-top: 0;
+}
 /* left col */
 .h0 {
 	height: 0;
@@ -156,3 +158,4 @@ i {
 	align-items: center;
 	overflow-y: auto;
 }
+
